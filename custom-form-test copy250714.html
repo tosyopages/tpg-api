@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <title>カスタム購入フォーム</title>
+   <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <style>
+    img {
+      width: 200px;
+      cursor: pointer;
+      margin: 10px;
+    }
+  </style>
+  </head>
+<body>
+
+<h2>アクリルキーホルダー</h2>
+
+<form method="post" action="https://tosyoteststore5.myshopify.com/cart/add">
+  <!-- 商品バリアントID -->
+  <input type="hidden" name="id" value="42575178268753">
+
+  <!-- 入力フィールド（画像URLを自動挿入） -->
+  <label for="image_url">選択された画像URL（image_url）:</label>
+  <input type="text" id="image_url" name="properties[image_url]" required>
+
+  <br>
+  <img id="resultImage" src="" alt="表示される画像" width="300">
+  <br>
+
+  <button type="submit">カートに追加</button>
+</form>
+
+<h2>Tシャツ</h2>
+
+<form method="post" action="https://tosyoteststore5.myshopify.com/cart/add">
+  <!-- 商品バリアントID -->
+  <input type="hidden" name="id" value="42581234155601">
+
+  <!-- 入力フィールド（画像URLを自動挿入） -->
+  <label for="image_url">選択された画像URL（image_url）:</label>
+  <input type="text" id="image_url" name="properties[image_url]" required>
+
+  <br>
+  <img id="resultImage" src="" alt="表示される画像" width="300">
+  <br>
+
+  <button type="submit">カートに追加</button>
+</form>
+
+
+<script>
+  // URLからimageパラメータを取得してinputに設定
+  const params = new URLSearchParams(window.location.search);
+  const imageUrl = params.get("image");
+  if (imageUrl) {
+    document.getElementById("image_url").value = decodeURIComponent(imageUrl);
+  }
+</script>
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    const input = document.getElementById("image_url").value;
+    const img = document.getElementById("resultImage");
+    img.src = input;
+  });
+</script>
+
+
+
+</body>
+</html>

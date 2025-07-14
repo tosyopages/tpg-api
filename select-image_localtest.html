@@ -13,6 +13,8 @@
   </style>
 </head>
 <body>
+    <h1>ローカルテスト
+    </h1>
 
 <h2>画像を選ぶ方法でも...</h2>
 
@@ -34,9 +36,11 @@ const pathWithOutFilename = currentURL.substring(0, currentURL.lastIndexOf('/'))
 </div>
 <script>
   function goToForm(imageUrl) {
-    // 遷移時に画像URLをGETパラメータに乗せて送る
+    // 遷移時に画像URLとclientをGETパラメータに乗せて送る
+    const client = 'とうしょう';
+    const encode_client = encodeURIComponent(client);
     const encodedUrl = encodeURIComponent(imageUrl);
-    window.location.href = `https://tosyopages.github.io/RKSYO-APItest/custom-form-test.html?image=${encodedUrl}`;
+    window.location.href = `custom-form-test.html?client=${encode_client}&image=${encodedUrl}`;
   }
 </script>
 

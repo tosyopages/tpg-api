@@ -25,25 +25,16 @@
 <br>
 <img id="global_result_image" src="" alt="表示される画像">
 <br><br>
-<hr>
+
 <!-- アクリルキーホルダー -->
 <div class="form-section">
   <h2>アクリルキーホルダー</h2>
-  <form method="post" action="https://tosyoteststore5.myshopify.com/cart/add" class="custom-form tshirt-form">
-    <label for="size_select">サイズを選んでください：</label>
-    <select id="size_select">
-      <option value="42581838889041">50mm角内</option>
-      <option value="42581838921809">70mm角内</option>
-      <option value="42581838954577">100mm角内</option>
-    </select>
-    <br><br>
+  <form method="post" action="https://tosyoteststore5.myshopify.com/cart/add" class="custom-form" data-fixed-id="42575178268753">
     <input type="hidden" class="variant_id_input" name="id" value="">
     <input type="hidden" class="image_url_input" name="properties[image_url]" value="">
-     <input type="hidden" class="client_input" name="properties[client]" value="">
     <button type="submit">カートに追加</button>
   </form>
 </div>
-<hr>
 
 <!-- マグカップ -->
 <div class="form-section">
@@ -51,11 +42,10 @@
   <form method="post" action="https://tosyoteststore5.myshopify.com/cart/add" class="custom-form" data-fixed-id="42581802025041">
     <input type="hidden" class="variant_id_input" name="id" value="">
     <input type="hidden" class="image_url_input" name="properties[image_url]" value="">
-     <input type="hidden" class="client_input" name="properties[client]" value="">
     <button type="submit">カートに追加</button>
   </form>
 </div>
-<hr>
+
 <!-- Tシャツ（サイズ選択） -->
 <div class="form-section">
   <h2>Tシャツ</h2>
@@ -70,65 +60,31 @@
     <br><br>
     <input type="hidden" class="variant_id_input" name="id" value="">
     <input type="hidden" class="image_url_input" name="properties[image_url]" value="">
-     <input type="hidden" class="client_input" name="properties[client]" value="">
     <button type="submit">カートに追加</button>
   </form>
 </div>
-<hr>
-<!-- ホワイトステッカー -->
-<div class="form-section">
-  <h2>ホワイトステッカー</h2>
-  <form method="post" action="https://tosyoteststore5.myshopify.com/cart/add" class="custom-form tshirt-form">
-    <label for="size_select">サイズを選んでください：</label>
-    <select id="size_select">
-      <option value="42581839544401">50mm角内</option>
-      <option value="42581839577169">70mm角内</option>
-      <option value="42581839609937">100mm角内</option>
-    </select>
-    <br><br>
-    <input type="hidden" class="variant_id_input" name="id" value="">
-    <input type="hidden" class="image_url_input" name="properties[image_url]" value="">
-     <input type="hidden" class="client_input" name="properties[client]" value="">
-    <button type="submit">カートに追加</button>
-  </form>
-</div>
-<hr>
 
-<!--スクリプト-->
 <script>
   document.addEventListener("DOMContentLoaded", function () {
     const params = new URLSearchParams(window.location.search);
     const imageUrlParam = params.get("image");
-    const clientParam = params.get("client");
-
     const globalInput = document.getElementById("global_image_url");
     const globalImg = document.getElementById("global_result_image");
-    const globalClientInput = document.getElementById("global_client");
 
-    // クエリからimageがあれば反映
     if (imageUrlParam) {
       globalInput.value = decodeURIComponent(imageUrlParam);
       globalImg.src = decodeURIComponent(imageUrlParam);
     }
 
-    // クエリからclientがあれば反映
-    if (clientParam) {
-      globalClientInput.value = decodeURIComponent(clientParam);
-    }
-
     // 入力や変更があったとき、すべてのフォームに反映
     function updateForms() {
-      const imageValue = globalInput.value;
-      const clientValue = globalClientInput.value;
-
+      const value = globalInput.value;
       document.querySelectorAll(".custom-form").forEach(form => {
-        const imageInput = form.querySelector(".image_url_input");
-        const clientInput = form.querySelector(".client_input");
-        const variantInput = form.querySelector(".variant_id_input");
-        const fixedId = form.dataset.fixedId;
+        const input = form.querySelector(".image_url_input");
+        input.value = value;
 
-        if (imageInput) imageInput.value = imageValue;
-        if (clientInput) clientInput.value = clientValue;
+        const fixedId = form.dataset.fixedId;
+        const variantInput = form.querySelector(".variant_id_input");
 
         if (fixedId) {
           variantInput.value = fixedId;
@@ -138,7 +94,7 @@
         }
       });
 
-      globalImg.src = imageValue;
+      globalImg.src = value;
     }
 
     // 初期反映
@@ -146,11 +102,9 @@
 
     // 入力の変更を反映
     globalInput.addEventListener("input", updateForms);
-    globalClientInput.addEventListener("input", updateForms);
     document.getElementById("size_select").addEventListener("change", updateForms);
   });
 </script>
-
 
 </body>
 </html>
