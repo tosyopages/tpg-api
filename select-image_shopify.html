@@ -2,37 +2,102 @@
 <html lang="ja">
 <head>
   <meta charset="UTF-8">
-  <title>画像選択</title>
-    
+  <title>RKSYOストア（仮称）　デモサイト</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.10/styles/vs.min.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.10/highlight.min.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script>
   <style>
     img {
       width: 200px;
       cursor: pointer;
-      margin: 10px;
+      margin-top:1rem;
+    }
+    .container {
+      padding: 0 3rem;
+    }
+    .section {
+      padding: 1rem;
+
+      border-radius: 17px;
+      box-shadow: 5px 5px 21px -12px #777777;
+      margin-bottom:2rem;
+    }
+
+    .button {
+      display: inline-block;
+      padding: 0.5em 1em;
+      text-decoration: none;
+      background: #668ad8;/*ボタン色*/
+      color: #FFF;
+      border:0;
+      border-bottom: solid 4px #627295;
+      border-radius: 3px;
+    }
+    .button:hover, .button:active {
+      -webkit-transform: translateY(4px);
+      transform: translateY(4px);
+      border-bottom: none;
+    }
+
+    code, pre {
+      padding:0;
+      margin:0;
+    }
+    pre {
+      border:1px #ccc solid;
+      padding:1rem;
     }
   </style>
 </head>
 <body>
-    <h1>ローカルテスト
-    </h1>
+  <div class="container">
+    <h1>RKSYOストア（仮称）　デモサイト</h1>
+    <p>クライアント様のWebページに、弊社からご提供するスクリプトを数行追加するだけで、画像を手軽にグッズ販売へ連携できます。<br>スクリプト追加後、すぐに販売がスタートできます。<br>
+    専門的な知識や大きな改修は不要。<br>シンプルな導入で、オリジナルグッズ販売をすぐにご体験いただけます。</p>
+    <div class="section">
+      <h2>画像を選ぶ方法でも...</h2>
+      <div>
+        <img src="img/img1.jpg" onclick="goToForm(this.src)">
+        <img src="img/img2.jpg" onclick="goToForm(this.src)">
+        <img src="img/img3.jpg" onclick="goToForm(this.src)">
+      </div>
 
-<h2>画像を選ぶ方法でも...</h2>
+    </div>
 
-<!-- 画像をクリックすると、custom-form-test.html に画像URLを渡して遷移 -->
-<img src="img/img1.jpg" onclick="goToForm(this.src)">
-<img src="img/img2.jpg" onclick="goToForm(this.src)">
-<img src="img/img3.jpg" onclick="goToForm(this.src)">
 
-<br>
-<h2>ボタンをクリックする方法でも...</h2>
-<script>
-  const currentURL = location.href;
-const pathWithOutFilename = currentURL.substring(0, currentURL.lastIndexOf('/'));
-</script>
-<div style="background-color: #ccc;width:30rem;padding:1rem;">
-<button class="button" onclick="goToForm(pathWithOutFilename + '/img/img1.jpg')">この写真のグッズを購入する</button>
+    <div class="section">
+      <h2>ボタンをクリックする方法でも...</h2>
+      <script>
+        const currentURL = location.href;
+        const pathWithOutFilename = currentURL.substring(0, currentURL.lastIndexOf('/'));
+      </script>
+      <div>
+        <button class="button" onclick="goToForm(pathWithOutFilename + '/img/img1.jpg')">この写真のグッズを購入する</button>
+        <br><img src="img/img1.jpg" alt="">
+      </div>
+    </div>
+    <div class="section">
 
-<p><img src="img/img1.jpg" alt=""></p>
+      <h2>方法</h2>
+      <h3>１：以下のようなスクリプトコードを契約後にご支給しますので、ウェブページに追加します</h3>
+      <p>※以下のコードはサンプルです。</p>
+      <pre><code>&lt;!-- RKSYOストア用スクリプト：start --&gt;
+&lt;script&gt;
+  function goToForm(imageUrl) {
+    // 遷移時に画像URLとclientをGETパラメータに乗せて送る
+    const client = &#039;とうしょう&#039;;
+    const encode_client = encodeURIComponent(client);
+    const encodedUrl = encodeURIComponent(imageUrl);
+    window.location.href = `https://tosyoteststore5.myshopify.com/pages/custom-form.html?client=${encode_client}&amp;image=${encodedUrl}`;
+  }
+&lt;/script&gt;
+&lt;!-- RKSYOストア用スクリプト：end --&gt;</code></pre>
+    <h3>２：商品販売ページに連携したい画像のimgタグやbuttonタグ等にonclickイベントを追加します</h3>
+    <p>画像imgに追加する場合：</p>
+    <pre><code>&lt;img src=&quot;画像のURLまたはファイルパス&quot; onclick=&quot;goToForm(this.src)&quot;&gt;</code></pre>
+    <p>buttonタグ等に追加する場合：</p>
+    <pre><code>&lt;button class=&quot;button&quot; onclick=&quot;goToForm(&#039;画像のURL&#039;)&quot;&gt;この写真のグッズを購入する&lt;/button&gt;</code></pre>
+  </div>
 </div>
 <script>
   function goToForm(imageUrl) {
