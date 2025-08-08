@@ -1,0 +1,54 @@
+
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <title>画像選択</title>
+    
+  <style>
+    img {
+      width: 200px;
+      cursor: pointer;
+      margin: 10px;
+    }
+  </style>
+</head>
+<body>
+<h1>まるか食品様の模擬ページ</h1>
+    <a href="https://www.peyoung.co.jp/special/packagemaker/share?id=20250718_pqcaPxMEXzmUDn07tivTeVFuYOgk82RI" target="_blank">パッケージメーカーで作成したshare用画面</a>
+
+<h2>画像を選ぶ方法でも...</h2>
+
+<!-- 画像をクリックすると、custom-form-test.html に画像URLを渡して遷移 -->
+<img src="https://www.peyoung.co.jp/special/packagemaker/img/share/20250718_pqcaPxMEXzmUDn07tivTeVFuYOgk82RI.png" onclick="goToForm(this.src)">
+
+
+<br>
+<h2>ボタンをクリックする方法でも...</h2>
+<script>
+  const currentURL = location.href;
+const pathWithOutFilename = currentURL.substring(0, currentURL.lastIndexOf('/'));
+</script>
+<div style="background-color: #ccc;width:30rem;padding:1rem;">
+<button class="button" onclick="goToForm('https://www.peyoung.co.jp/special/packagemaker/img/share/20250718_pqcaPxMEXzmUDn07tivTeVFuYOgk82RI.png')">この写真のグッズを購入する</button>
+
+<p><img src="https://www.peyoung.co.jp/special/packagemaker/img/share/20250718_pqcaPxMEXzmUDn07tivTeVFuYOgk82RI.png" alt=""></p>
+</div>
+<script>
+  function goToForm(imageUrl) {
+    // 遷移時に画像URLとclientをGETパラメータに乗せて送る
+    const client = 'まるか食品';
+    const encode_client = encodeURIComponent(client);
+    const encodedUrl = encodeURIComponent(imageUrl);
+    window.location.href = `https://tosyoteststore5.myshopify.com/pages/custom-form.html?client=${encode_client}&image=${encodedUrl}`;
+  }
+</script>
+
+</body>
+</html>
+
+
+<!--
+created 250718
+https://www.peyoung.co.jp/special/packagemaker/img/share/20250718_pqcaPxMEXzmUDn07tivTeVFuYOgk82RI.png
+-->

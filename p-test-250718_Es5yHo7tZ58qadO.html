@@ -3,37 +3,225 @@
 <html lang="ja">
 <head>
   <meta charset="UTF-8">
-  <title>画像選択</title>
-    
+  <title>模擬ページ</title>
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.10/styles/vs.min.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.10/highlight.min.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script>
   <style>
+    :root{
+      scroll-padding: 80px;
+      scroll-behavior: smooth;
+    }
+    /* リセット */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: sans-serif;
+      line-height: 1.6;
+      color: #333;
+    }
+
+    header {
+      background-color: #fff;
+      padding: 1rem 2rem;
+      border-bottom: 1px solid #ddd;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+    }
+
+    .nav-container {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      position: relative;
+    }
+
+    .site-title {
+      font-size: 1.5rem;
+      font-weight: bold;
+    }
+
+    nav ul {
+      display: flex;
+      gap: 1.5rem;
+      list-style: none;
+    }
+
+    nav a {
+      text-decoration: none;
+      color: #333;
+      font-weight: 500;
+      transition: color 0.3s;
+    }
+
+    nav a:hover {
+      color: #164255;
+    }
+
+    /* ハンバーガーメニューのスタイル */
+    .menu-toggle {
+      display: none;
+      flex-direction: column;
+      cursor: pointer;
+    }
+
+    .menu-toggle span {
+      height: 3px;
+      width: 25px;
+      background: #333;
+      margin: 4px 0;
+      transition: all 0.3s ease;
+    }
+
+    @media (max-width: 768px) {
+      nav ul {
+        display: none;
+        flex-direction: column;
+        position: absolute;
+        top: 70px;
+
+        /* 左寄せに変更 */
+        left: 20px;
+        right: auto;
+
+        background: white;
+        border: 1px solid #ccc;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        padding: 1rem;
+        z-index: 999;
+      }
+
+      nav ul.active {
+        display: flex;
+      }
+
+      .menu-toggle {
+        display: flex;
+      }
+    }
+
+
+    main {
+      padding: 2rem;
+      max-width: 900px;
+      margin: 0 auto;
+    }
+
     img {
       width: 200px;
       cursor: pointer;
+      margin-top:1rem;
+    }
+    .container {
+      padding: 0 3rem;
+      margin: 1rem 3rem;
+    }
+    .section {
+      padding: 1rem;
+
+      border-radius: 17px;
+      box-shadow: 5px 5px 21px -12px #777777;
+      margin-bottom:2rem;
+      border:1px solid #ddd;
+    }
+
+
+
+    code, pre {
+      padding:0;
+      margin:0;
+    }
+    pre {
+      border:1px #ccc solid;
+      padding:1rem;
+    }
+    .imgclick > img {
+      transition: transform 0.3s ease;
+    }
+    .imgclick > img:hover, .imgclick > img:active{
+      transform: scale(0.95);
+    }
+    h2 {
+      margin-top:1rem;
+    }
+    .sub-heading {
+      font-weight:bold;
+      font-size:1.5rem;
+    }
+
+  </style>
+  <style>
+    img {
+      width: 200px;
+      cursor: default;
       margin: 10px;
+    }
+    button {
+      background-color: #f00;
+      color:#fff;
+      border:0;
+      padding:0.5rem 1rem;
+      border-radius: 5px;
+      font-size:1.2rem;
+      font-weight:bold;
+
+    }
+    .button:hover, .button:active {
+      transform: scale(0.95);
     }
   </style>
 </head>
 <body>
-<h1>まるか食品様の模擬ページ</h1>
-    <a href="https://www.peyoung.co.jp/special/packagemaker/share?id=20250718_pqcaPxMEXzmUDn07tivTeVFuYOgk82RI" target="_blank">パッケージメーカーで作成したshare用画面</a>
 
-<h2>画像を選ぶ方法でも...</h2>
+<div class="container">
+  <h1>まるか食品様の模擬ページ</h1>
+  <p>オリジナルパッケージメーカーの画像を使ったグッズ購入の模擬ページです。</p>
+  <p>「グッズ購入」ボタンをパッケージメーカーの完成画面に追加します。</p>
+<img src="img/peyoung_packagemaker_page.png" alt="" style="width:100%;max-width:50rem">
 
-<!-- 画像をクリックすると、custom-form-test.html に画像URLを渡して遷移 -->
-<img src="https://www.peyoung.co.jp/special/packagemaker/img/share/20250718_pqcaPxMEXzmUDn07tivTeVFuYOgk82RI.png" onclick="goToForm(this.src)">
 
-
-<br>
-<h2>ボタンをクリックする方法でも...</h2>
 <script>
   const currentURL = location.href;
 const pathWithOutFilename = currentURL.substring(0, currentURL.lastIndexOf('/'));
 </script>
-<div style="background-color: #ccc;width:30rem;padding:1rem;">
-<button class="button" onclick="goToForm('https://www.peyoung.co.jp/special/packagemaker/img/share/20250718_pqcaPxMEXzmUDn07tivTeVFuYOgk82RI.png')">この写真のグッズを購入する</button>
+<p>以下の「グッズ購入」ボタンを実際にクリックしてみてください。</p>
+<div>
+<button class="button" onclick="goToForm('https://www.peyoung.co.jp/special/packagemaker/img/share/20250718_pqcaPxMEXzmUDn07tivTeVFuYOgk82RI.png')">グッズ購入</button>
+</div>
 
+<div style="background-color: #ccc;width:30rem;padding:1rem; margin-top:1rem;">
+<p>クリックすると、別サイト（RKSYOストア（仮称））に遷移し、
+以下の画像の商品購入ページが開きます。</p>
 <p><img src="https://www.peyoung.co.jp/special/packagemaker/img/share/20250718_pqcaPxMEXzmUDn07tivTeVFuYOgk82RI.png" alt=""></p>
 </div>
+
+      <h2 id="section3">ウェブページへのスクリプト追加方法</h2>
+
+      <p>導入手順はたったこれだけ。クライアント様のウェブページにあわせた導入方法について丁寧に支援いたします。</p>
+      <h3>１：以下のようなスクリプトコードを契約後にご支給しますので、ウェブページに追加します</h3>
+      <p>※以下のコードはサンプルです。</p>
+      <pre><code>&lt;!-- RKSYOストア用スクリプト：start --&gt;
+&lt;script&gt;
+  function goToForm(imageUrl) {
+    // 遷移時に画像URLとclientをGETパラメータに乗せて送る
+    const client = &#039;まるか食品&#039;;
+    const encode_client = encodeURIComponent(client);
+    const encodedUrl = encodeURIComponent(imageUrl);
+    window.location.href = `https://tosyoteststore5.myshopify.com/pages/custom-form.html?client=${encode_client}&amp;image=${encodedUrl}`;
+  }
+&lt;/script&gt;
+&lt;!-- RKSYOストア用スクリプト：end --&gt;</code></pre>
+    <h3>２：buttonタグにonclickイベントを追加します</h3>
+
+    <pre><code>&lt;button class=&quot;button&quot; onclick=&quot;goToForm(&#039;画像のURL&#039;)&quot;&gt;この写真のグッズを購入する&lt;/button&gt;</code></pre>
+  </div>
+
 <script>
   function goToForm(imageUrl) {
     // 遷移時に画像URLとclientをGETパラメータに乗せて送る
@@ -43,12 +231,13 @@ const pathWithOutFilename = currentURL.substring(0, currentURL.lastIndexOf('/'))
     window.location.href = `https://tosyoteststore5.myshopify.com/pages/custom-form.html?client=${encode_client}&image=${encodedUrl}`;
   }
 </script>
-
+</div>
 </body>
 </html>
 
 
 <!--
 created 250718
+https://www.peyoung.co.jp/special/packagemaker/share?id=20250718_pqcaPxMEXzmUDn07tivTeVFuYOgk82RI
 https://www.peyoung.co.jp/special/packagemaker/img/share/20250718_pqcaPxMEXzmUDn07tivTeVFuYOgk82RI.png
 -->
