@@ -1,9 +1,10 @@
+
 <!DOCTYPE html>
 <html lang="ja">
 <head>
   <meta charset="UTF-8">
-  <title>RKSYOストア（仮称）　デモサイト</title>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.10/styles/vs.min.css">
+  <title>模擬ページ</title>
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.10/styles/vs.min.css">
   <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.10/highlight.min.js"></script>
   <script>hljs.initHighlightingOnLoad();</script>
   <style>
@@ -119,6 +120,7 @@
     }
     .container {
       padding: 0 3rem;
+      margin: 1rem 3rem;
     }
     .section {
       padding: 1rem;
@@ -129,19 +131,7 @@
       border:1px solid #ddd;
     }
 
-    .button {
-      display: inline-block;
-      padding: 0.5em 1em;
-      text-decoration: none;
-      background: #668ad8;/*ボタン色*/
-      color: #FFF;
-      border:0;
-      transition: transform 0.3s ease;
-      border-radius: 3px;
-    }
-    .button:hover, .button:active {
-      transform: scale(0.95);
-    }
+
 
     code, pre {
       padding:0;
@@ -166,69 +156,59 @@
     }
 
   </style>
+  <style>
+    img {
+      width: 200px;
+      cursor: default;
+      margin: 10px;
+    }
+    button {
+      background-color: #f00;
+      color:#fff;
+      border:0;
+      padding:0.5rem 1rem;
+      border-radius: 5px;
+      font-size:1.2rem;
+      font-weight:bold;
+
+    }
+    .button:hover, .button:active {
+      transform: scale(0.95);
+    }
+  </style>
 </head>
 <body>
-  <header>
-    <div class="nav-container">
+
+<div class="container">
+  <h1>まるか食品様の模擬ページ</h1>
+  <p>オリジナルパッケージメーカーの画像を使ったグッズ購入の模擬ページです。</p> 
+  <p><a href="https://www.peyoung.co.jp/special/packagemaker/">ペヤング　オリジナルパッケージ画像メーカー</a></p>
+  <p>「グッズ購入」ボタンをパッケージメーカーの完成画面に追加します。</p>
+<img src="img/peyoung_packagemaker_page.png" alt="" style="width:100%;max-width:50rem">
 
 
-      <!-- ハンバーガーアイコン -->
-      <div class="menu-toggle" id="menuToggle">
-        <span></span>
-        <span></span>
-        <span></span>
-      </div>
-
-      <div class="site-title">RKSYOストア（仮称）　デモサイト</div>
-
-      <nav>
-        <ul id="navMenu">
-          <li><a href="#section1">実装例１</a></li>
-          <li><a href="#section2">実装例２</a></li>
-          <li><a href="#section3">実装方法</a></li>
-
-        </ul>
-      </nav>
-    </div>
-  </header>
-  <main>
-  <div class="container">
-    <h1>RKSYOストア（仮称）　デモサイト</h1>
-    <p>クライアント様のWebページに、弊社からご提供するスクリプトを数行追加するだけで、画像を手軽にグッズ販売へ連携できます。<br>スクリプト追加後、すぐに販売がスタートできます。<br>
-    専門的な知識や大きな改修は不要。<br>シンプルな導入で、オリジナルグッズ販売をすぐにご体験いただけます。</p>
-    <h2 id="section1">実装例１：画像をクリックすると販売ページが開く</h2>
-    <div class="section">
-
-      <p>写真の商品が購入できます。気に入った写真をクリックしてください。</p>
-      <p>※注意：クリックすると別サイト（RKSYOサイト（仮名））の販売ページに移動します。</p>
-      <div class="imgclick">
-        <img src="img/img1.jpg" onclick="goToForm(this.src)">
-        <img src="img/img2.jpg" onclick="goToForm(this.src)">
-        <img src="img/img3.jpg" onclick="goToForm(this.src)">
-        <img src="img/img4.jpg" onclick="goToForm(this.src)">
-        <img src="img/img5.jpg" onclick="goToForm(this.src)">
-        <img src="img/img6.jpg" onclick="goToForm(this.src)">
-      </div>
-
-    </div>
+<div class="section">
+<script>
+  const currentURL = location.href;
+const pathWithOutFilename = currentURL.substring(0, currentURL.lastIndexOf('/'));
+</script>
+<p>以下の「グッズ購入」ボタンを実際にクリックしてみてください。</p>
+<div>
+<button class="button" onclick="goToForm('https://www.peyoung.co.jp/special/packagemaker/img/share/20250825_arjKYie72LGMI8hlTOkHsgnJFQfR1PWz.png')">グッズ購入</button>
+</div>
 
 
-    <h2 id="section2">実装例２：ボタンをクリックすると販売ページが開く</h2>
-    <div class="section">
+<div style="background-color: #ccc;width:30rem;padding:1rem; margin-top:1rem;">
+<p>クリックすると、別サイト（RKSYOストア（仮称））に遷移し、
+以下の画像の商品購入ページが開きます。</p>
+<p><img src="https://www.peyoung.co.jp/special/packagemaker/img/share/20250825_arjKYie72LGMI8hlTOkHsgnJFQfR1PWz.png" alt=""></p>
+</div>
+</div>
 
-      <script>
-        const currentURL = location.href;
-        const pathWithOutFilename = currentURL.substring(0, currentURL.lastIndexOf('/'));
-      </script>
-      <div>
-        <button class="button" onclick="goToForm(pathWithOutFilename + '/img/img1.jpg')">この写真のグッズを購入する</button>
-        <br><img src="img/img1.jpg" alt="">
-      </div>
-    </div>
-
+<div class="section">
 
       <h2 id="section3">ウェブページへのスクリプト追加方法</h2>
-  <div class="section">
+
       <p>導入手順はたったこれだけ。クライアント様のウェブページにあわせた導入方法について丁寧に支援いたします。</p>
       <h3>１：以下のようなスクリプトコードを契約後にご支給しますので、ウェブページに追加します</h3>
       <p>※以下のコードはサンプルです。</p>
@@ -236,50 +216,32 @@
 &lt;script&gt;
   function goToForm(imageUrl) {
     // 遷移時に画像URLとclientをGETパラメータに乗せて送る
-    const client = &#039;とうしょう&#039;;
+    const client = &#039;まるか食品&#039;;
     const encode_client = encodeURIComponent(client);
     const encodedUrl = encodeURIComponent(imageUrl);
     window.location.href = `https://tosyoteststore5.myshopify.com/pages/custom-form.html?client=${encode_client}&amp;image=${encodedUrl}`;
   }
 &lt;/script&gt;
 &lt;!-- RKSYOストア用スクリプト：end --&gt;</code></pre>
-    <h3>２：商品販売ページに連携したい画像のimgタグやbuttonタグ等にonclickイベントを追加します</h3>
-    <p>画像imgに追加する場合：</p>
-    <pre><code>&lt;img src=&quot;画像のURLまたはファイルパス&quot; onclick=&quot;goToForm(this.src)&quot;&gt;</code></pre>
-    <p>buttonタグ等に追加する場合：</p>
+    <h3>２：buttonタグにonclickイベントを追加します</h3>
+
     <pre><code>&lt;button class=&quot;button&quot; onclick=&quot;goToForm(&#039;画像のURL&#039;)&quot;&gt;この写真のグッズを購入する&lt;/button&gt;</code></pre>
   </div>
 
-  <!-- RKSYOストア用スクリプト-->
-  <script>
-    function goToForm(imageUrl) {
-      // 遷移時に画像URLとclientをGETパラメータに乗せて送る
-      const client = 'とうしょう';
-      const encode_client = encodeURIComponent(client);
-      const encodedUrl = encodeURIComponent(imageUrl);
-      window.location.href = `https://tosyoteststore5.myshopify.com/pages/custom-form.html?client=${encode_client}&image=${encodedUrl}`;
-    }
-  </script>
-  <script>
-    // メニュートグルの動作
-    const toggle = document.getElementById('menuToggle');
-    const navMenu = document.getElementById('navMenu');
+<script>
+  function goToForm(imageUrl) {
+    // 遷移時に画像URLとclientをGETパラメータに乗せて送る
+    const client = 'まるか食品';
+    const encode_client = encodeURIComponent(client);
+    const encodedUrl = encodeURIComponent(imageUrl);
+    window.location.href = `https://tosyoteststore5.myshopify.com/pages/custom-form.html?client=${encode_client}&image=${encodedUrl}`;
+  }
+</script>
 
-    toggle.addEventListener('click', () => {
-      navMenu.classList.toggle('active');
-    });
 
-    // メニューリンククリック時にメニューを閉じる（スマホでの動作向け）
-    document.querySelectorAll('nav a').forEach(link => {
-      link.addEventListener('click', () => {
-        navMenu.classList.remove('active');
-      });
-    });
-  </script>
-
-  <h2>【テスト】</h2>
 <div class="section">
-<p>画像URLとクライアント名（販売事業者名）を入力の上、「グッズ購入」ボタンをクリックしてみてください。</p>
+  <h2>【テスト】</h2>
+<p>以下の「グッズ購入」ボタンを実際にクリックしてみてください。</p>
 
 <!-- URL入力欄 + 更新ボタン -->
 <div style="margin-bottom:1rem;">
@@ -337,8 +299,13 @@
     window.location.href = `https://tosyoteststore5.myshopify.com/pages/custom-form.html?client=${encode_client}&image=${encodedUrl}`;
   }
 </script>
-</div>
-</main>
 
 </body>
 </html>
+
+
+<!--
+created 250718
+https://www.peyoung.co.jp/special/packagemaker/share?id=20250718_pqcaPxMEXzmUDn07tivTeVFuYOgk82RI
+https://www.peyoung.co.jp/special/packagemaker/img/share/20250718_pqcaPxMEXzmUDn07tivTeVFuYOgk82RI.png
+-->
