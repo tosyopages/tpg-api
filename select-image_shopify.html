@@ -2,7 +2,7 @@
 <html lang="ja">
 <head>
   <meta charset="UTF-8">
-  <title>RKSYOストア（仮称）　デモサイト</title>
+  <title>TOSYO PHOTO STOREストア（仮称）　デモサイト</title>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.10/styles/vs.min.css">
   <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.10/highlight.min.js"></script>
   <script>hljs.initHighlightingOnLoad();</script>
@@ -179,7 +179,7 @@
         <span></span>
       </div>
 
-      <div class="site-title">RKSYOストア（仮称）　デモサイト</div>
+      <div class="site-title">TOSYO PHOTO STOREストア（仮称）　デモサイト</div>
 
       <nav>
         <ul id="navMenu">
@@ -193,14 +193,14 @@
   </header>
   <main>
   <div class="container">
-    <h1>RKSYOストア（仮称）　デモサイト</h1>
+    <h1>TOSYO PHOTO STOREストア（仮称）　デモサイト</h1>
     <p>クライアント様のWebページに、弊社からご提供するスクリプトを数行追加するだけで、画像を手軽にグッズ販売へ連携できます。<br>スクリプト追加後、すぐに販売がスタートできます。<br>
     専門的な知識や大きな改修は不要。<br>シンプルな導入で、オリジナルグッズ販売をすぐにご体験いただけます。</p>
     <h2 id="section1">実装例１：画像をクリックすると販売ページが開く</h2>
     <div class="section">
 
       <p>写真の商品が購入できます。気に入った写真をクリックしてください。</p>
-      <p>※注意：クリックすると別サイト（RKSYOサイト（仮名））の販売ページに移動します。</p>
+      <p>※注意：クリックすると別サイト（TOSYO PHOTO STOREサイト（仮名））の販売ページに移動します。</p>
       <div class="imgclick">
         <img src="img/img1.jpg" onclick="goToForm(this.src)">
         <img src="img/img2.jpg" onclick="goToForm(this.src)">
@@ -232,7 +232,7 @@
       <p>導入手順はたったこれだけ。クライアント様のウェブページにあわせた導入方法について丁寧に支援いたします。</p>
       <h3>１：以下のようなスクリプトコードを契約後にご支給しますので、ウェブページに追加します</h3>
       <p>※以下のコードはサンプルです。</p>
-      <pre><code>&lt;!-- RKSYOストア用スクリプト：start --&gt;
+      <pre><code>&lt;!-- TOSYO PHOTO STOREストア用スクリプト：start --&gt;
 &lt;script&gt;
   function goToForm(imageUrl) {
     // 遷移時に画像URLとclientをGETパラメータに乗せて送る
@@ -242,7 +242,7 @@
     window.location.href = `https://tosyoteststore5.myshopify.com/pages/custom-form.html?client=${encode_client}&amp;image=${encodedUrl}`;
   }
 &lt;/script&gt;
-&lt;!-- RKSYOストア用スクリプト：end --&gt;</code></pre>
+&lt;!-- TOSYO PHOTO STOREストア用スクリプト：end --&gt;</code></pre>
     <h3>２：商品販売ページに連携したい画像のimgタグやbuttonタグ等にonclickイベントを追加します</h3>
     <p>画像imgに追加する場合：</p>
     <pre><code>&lt;img src=&quot;画像のURLまたはファイルパス&quot; onclick=&quot;goToForm(this.src)&quot;&gt;</code></pre>
@@ -250,7 +250,7 @@
     <pre><code>&lt;button class=&quot;button&quot; onclick=&quot;goToForm(&#039;画像のURL&#039;)&quot;&gt;この写真のグッズを購入する&lt;/button&gt;</code></pre>
   </div>
 
-  <!-- RKSYOストア用スクリプト-->
+  <!-- TOSYO PHOTO STOREストア用スクリプト-->
   <script>
     function goToForm(imageUrl) {
       // 遷移時に画像URLとclientをGETパラメータに乗せて送る
@@ -299,7 +299,7 @@
 </div>
 
 <div style="background-color: #ccc;width:30rem;padding:1rem; margin-top:1rem;">
-  <p>クリックすると、別サイト（RKSYOストア（仮称））に遷移し、  
+  <p>クリックすると、別サイト（TOSYO PHOTO STOREストア（仮称））に遷移し、  
   以下の画像の商品購入ページが開きます。</p>
   <p><img id="previewImage" src="" alt="商品に使用する画像"></p>
 </div>
