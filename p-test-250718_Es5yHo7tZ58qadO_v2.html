@@ -199,7 +199,7 @@ const pathWithOutFilename = currentURL.substring(0, currentURL.lastIndexOf('/'))
 
 
 <div style="background-color: #ccc;width:30rem;padding:1rem; margin-top:1rem;">
-<p>クリックすると、別サイト（RKSYOストア（仮称））に遷移し、
+<p>クリックすると、別サイト（TOSYO PHOTO GOODSストア（仮称））に遷移し、
 以下の画像の商品購入ページが開きます。</p>
 <p><img src="https://www.peyoung.co.jp/special/packagemaker/img/share/20250825_arjKYie72LGMI8hlTOkHsgnJFQfR1PWz.png" alt=""></p>
 </div>
@@ -212,7 +212,7 @@ const pathWithOutFilename = currentURL.substring(0, currentURL.lastIndexOf('/'))
       <p>導入手順はたったこれだけ。クライアント様のウェブページにあわせた導入方法について丁寧に支援いたします。</p>
       <h3>１：以下のようなスクリプトコードを契約後にご支給しますので、ウェブページに追加します</h3>
       <p>※以下のコードはサンプルです。</p>
-      <pre><code>&lt;!-- RKSYOストア用スクリプト：start --&gt;
+      <pre><code>&lt;!-- TOSYO PHOTO GOODSストア用スクリプト：start --&gt;
 &lt;script&gt;
   function goToForm(imageUrl) {
     // 遷移時に画像URLとclientをGETパラメータに乗せて送る
@@ -222,7 +222,7 @@ const pathWithOutFilename = currentURL.substring(0, currentURL.lastIndexOf('/'))
     window.location.href = `https://tosyoteststore5.myshopify.com/pages/custom-form.html?client=${encode_client}&amp;image=${encodedUrl}`;
   }
 &lt;/script&gt;
-&lt;!-- RKSYOストア用スクリプト：end --&gt;</code></pre>
+&lt;!-- TOSYO PHOTO GOODSストア用スクリプト：end --&gt;</code></pre>
     <h3>２：buttonタグにonclickイベントを追加します</h3>
 
     <pre><code>&lt;button class=&quot;button&quot; onclick=&quot;goToForm(&#039;画像のURL&#039;)&quot;&gt;この写真のグッズを購入する&lt;/button&gt;</code></pre>
@@ -262,7 +262,7 @@ const pathWithOutFilename = currentURL.substring(0, currentURL.lastIndexOf('/'))
 </div>
 
 <div style="background-color: #ccc;width:30rem;padding:1rem; margin-top:1rem;">
-  <p>クリックすると、別サイト（RKSYOストア（仮称））に遷移し、  
+  <p>クリックすると、別サイト（TOSYO PHOTO GOODSストア（仮称））に遷移し、  
   以下の画像の商品購入ページが開きます。</p>
   <p><img id="previewImage" src="" alt="商品に使用する画像"></p>
 </div>
